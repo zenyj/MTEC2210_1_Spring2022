@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
-
+    public float speed = 5;
 
 
     void Update()
     {
-        //Vector3.up (etc)
-        transform.position += (Vector3.right * Time.deltaTime);
+        float xValue = speed * Time.deltaTime;
+        transform.Translate(xValue, 0, 0);
     }
 }
