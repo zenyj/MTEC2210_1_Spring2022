@@ -21,6 +21,13 @@ public class PlayerMovement : MonoBehaviour
         float yMovement = yMove * speed * Time.deltaTime;
 
         transform.Translate(xMovement, yMovement, 0);
+        //transform.position = new Vector3(transform.position.x + xMovement, transform.position.y + yMovement, transform.position.z);
 
-    }
+
+
+
+        }
+
+    
+   
 }

@@ -6,10 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public GameObject carPrefab;
     public Transform[] carSpawnPoints;
-    
+    public Color [] carColors;
     void Start()
     {
-        SpawnCar();
+        InvokeRepeating("SpawnCar", 3, 2);
         
     }
 
@@ -44,11 +44,37 @@ public class GameManager : MonoBehaviour
         {
             dirModifier = 1;
         }
-  
+
         //int dirModifier = (index > 2 ) ? -1 : 1;
 
+        float newSpeed = Random.Range(3.0f, 6.9f);
+        int colorIndex = Mathf.FloorToInt (newSpeed) - 3;
+        car.GetComponent<CarMovement>().speed = newSpeed * dirModifier;
+
+        Color c = Color.black;
+
+        if (newSpeed < 4.0f)
+        {
+            c = carColors[0];
+        }
+        else if (newSpeed >= 4.0f && newSpeed < 5.0f)
+        {
+            c = carColors[1];
+
+        }
+        else if (newSpeed >= 5.0f && newSpeed < 6f)
+        {
+            c = carColors[2];
+        }
+        else
+
+        {
+            c = carColors[2];
+        }
+
+
         car.GetComponent<CarMovement>().speed = Random.Range(3.0f, 6.0f) * dirModifier;
-        car.GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+        car.GetComponent<SpriteRenderer>().color = carColors[colorIndex];
        
 
     }
