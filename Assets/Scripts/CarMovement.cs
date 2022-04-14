@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarMovement : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class CarMovement : MonoBehaviour
     {
         float xValue = speed * Time.deltaTime;
         transform.Translate(xValue, 0, 0);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -20,5 +22,14 @@ public class CarMovement : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(collision.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        
+
     }
+    
 }

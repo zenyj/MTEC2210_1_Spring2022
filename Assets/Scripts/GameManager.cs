@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public GameObject carPrefab;
@@ -75,8 +76,11 @@ public class GameManager : MonoBehaviour
 
         car.GetComponent<CarMovement>().speed = Random.Range(3.0f, 6.0f) * dirModifier;
         car.GetComponent<SpriteRenderer>().color = carColors[colorIndex];
-       
+
+        
+
 
     }
+    
 }
 
