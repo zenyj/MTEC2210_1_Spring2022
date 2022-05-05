@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         else
         {
             dirModifier = 1;
+            car.GetComponent<SpriteRenderer>().flipX = true;
         }
 
         //int dirModifier = (index > 2 ) ? -1 : 1;

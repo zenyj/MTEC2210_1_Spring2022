@@ -25,7 +25,8 @@ public class CarMovement : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Destroy(collision.gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Debug.Log("Game Over");
         }
 
         

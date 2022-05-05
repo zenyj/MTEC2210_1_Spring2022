@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public float speed = 5.0f;
-
+    public GameManager gameManager;
 
 
 
@@ -35,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Goal")
         {
             Debug.Log("Area Cleared");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+
         }
 
         
